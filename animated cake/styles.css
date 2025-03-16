@@ -1,0 +1,119 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+}
+/* Cake container with a gentle pulsing effect */
+.cake {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  animation: pulse 4s infinite;
+}
+/* Bottom layer: new polygon shape */
+.cake .layer.bottom {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 280px;
+  height: 140px;
+  background: linear-gradient(145deg, #f8bbd0, #f48fb1);
+  clip-path: polygon(10% 0, 90% 0, 100% 70%, 50% 100%, 0 70%);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+/* Top layer: new polygon shape with rotation animation */
+.cake .layer.top {
+  position: absolute;
+  bottom: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 110px;
+  background: linear-gradient(145deg, #bbdefb, #90caf9);
+  clip-path: polygon(20% 0, 80% 0, 90% 70%, 50% 90%, 10% 70%);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  animation: rotateLayer 6s linear infinite;
+}
+/* Candle styling placed on top of the cake */
+.candle {
+  position: absolute;
+  bottom: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 50px;
+  background: #ffeb3b;
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+/* Animated flame with a glowing radial gradient */
+.flame {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle, #ff7043 40%, #e64a19 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ff7043;
+  animation: flicker 0.8s infinite;
+}
+/* Falling confetti for added animation flair */
+.confetti {
+  position: absolute;
+  top: 0;
+  width: 4px;
+  height: 10px;
+  background: #ff4081;
+  opacity: 0.8;
+  animation: fall 3s linear infinite;
+}
+/* Extra confetti pieces using pseudo-elements */
+.cake::before, .cake::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 4px;
+  height: 10px;
+  background: #7c4dff;
+  opacity: 0.8;
+  animation: fall 2.5s linear infinite;
+}
+.cake::before {
+  left: 30%;
+  animation-delay: 1s;
+}
+.cake::after {
+  left: 70%;
+  animation-delay: 0.5s;
+}
+/* Keyframes for candle flame flicker */
+@keyframes flicker {
+  0% { transform: translateX(-50%) scale(1); opacity: 1; }
+  50% { transform: translateX(-50%) scale(1.2); opacity: 0.8; }
+  100% { transform: translateX(-50%) scale(1); opacity: 1; }
+}
+/* Keyframes for cake pulsing effect */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+/* Keyframes for rotating the top layer */
+@keyframes rotateLayer {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  100% { transform: translateX(-50%) rotate(360deg); }
+}
+/* Keyframes for falling confetti animation */
+@keyframes fall {
+  0% { top: -20px; opacity: 0; }
+  10% { opacity: 1; }
+  100% { top: 320px; opacity: 0; }
+}
