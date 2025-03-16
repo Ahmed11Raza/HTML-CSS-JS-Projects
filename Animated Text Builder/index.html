@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Text Builder</title>
+    <link rel="stylesheet" href="styles.css">
+
+
+</head>
+<body>
+    <div class="container">
+        <h1>Animated Text Builder</h1>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label for="text-input">Your Text</label>
+                <input type="text" id="text-input" value="Animated Text" placeholder="Enter your text">
+            </div>
+            
+            <div class="control-group">
+                <label for="animation-type">Animation Type</label>
+                <select id="animation-type">
+                    <option value="fade-in">Fade In</option>
+                    <option value="slide-in">Slide In</option>
+                    <option value="bounce">Bounce</option>
+                    <option value="wave">Wave</option>
+                    <option value="typing">Typing</option>
+                    <option value="glow">Glow</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="color-option">Color Style</label>
+                <select id="color-option">
+                    <option value="color-white">White</option>
+                    <option value="color-blue">Blue</option>
+                    <option value="color-green">Green</option>
+                    <option value="color-purple">Purple</option>
+                    <option value="color-gradient-1">Gradient Pink-Yellow</option>
+                    <option value="color-gradient-2">Gradient Blue-Purple</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="preview">
+            <div id="animated-text" class="animated-text fade-in">Animated Text</div>
+        </div>
+        
+        <button id="apply-btn" class="apply-btn">Apply Animation</button>
+        
+        <!-- <h3 style="margin: 20px 0 10px 0;">Generated CSS</h3>
+        <div id="code-output" class="code-output">.your-element {
+    animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}</div>
+        <button id="copy-btn" class="copy-btn">Copy Code</button>
+    </div> -->
+
+    <script src="script.js"></script>
+
+
+
+    
+</body>
+</html>
