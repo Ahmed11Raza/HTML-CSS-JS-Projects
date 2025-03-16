@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll with Light Effect</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Scroll with <span class="highlight">Light</span> Effect</h1>
+    </div>
+
+    <div class="container">
+        <div class="content-section">
+            <h2>Welcome to the Light Show</h2>
+            <p>This interactive demonstration shows how you can create an engaging scrolling experience with a spotlight effect that follows your cursor and scroll position.</p>
+            <p>As you move down the page, watch how the light reveals content and creates a dramatic atmosphere.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>How It Works</h2>
+            <p>The spotlight effect is created using a radial gradient with the <span class="highlight">mix-blend-mode</span> property set to "screen". This creates a light-like effect that brightens content underneath.</p>
+            <p>We track both scroll position and mouse movement to position the light dynamically, creating an interactive experience that responds to user actions.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Customizable Options</h2>
+            <p>Try adjusting the controls in the bottom-right corner to customize the light effect. You can change:</p>
+            <p>- Light size<br>- Light intensity<br>- Light color<br>- Particle effects</p>
+            <p>Each adjustment creates a different mood and visual impact.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Practical Applications</h2>
+            <p>This effect can be used for:</p>
+            <p>- Creative portfolios<br>
+            - Product showcases<br>
+            - Storytelling websites<br>
+            - Interactive presentations</p>
+            <p>It draws attention to specific content elements and creates a sense of discovery as users navigate through the page.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Building Your Own</h2>
+            <p>To create this effect, you'll need to understand:</p>
+            <p>- CSS positioning and gradients<br>
+            - JavaScript event listeners<br>
+            - The Intersection Observer API<br>
+            - Browser performance optimization</p>
+            <p>The code is structured to be easily adaptable for your own projects.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Performance Considerations</h2>
+            <p>While visually impressive, this effect needs to be implemented carefully to ensure good performance.</p>
+            <p>We're using requestAnimationFrame for smooth animations and limiting how frequently we update the position to avoid performance issues on lower-powered devices.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Try It Yourself</h2>
+            <p>Feel free to explore the code and see how everything works together. Experiment with different settings to create your unique lighting effects.</p>
+            <p>The possibilities are endless when combining light effects with scrolling interactions!</p>
+        </div>
+    </div>
+
+    <div class="light-container">
+        <div class="light"></div>
+    </div>
+
+    <div class="particles" id="particles-container"></div>
+
+    <div class="control-panel">
+        <label for="size-range">Light Size</label>
+        <input type="range" id="size-range" min="100" max="500" value="250">
+        
+        <label for="intensity-range">Light Intensity</label>
+        <input type="range" id="intensity-range" min="0" max="100" value="80">
+        
+        <label>Light Color</label>
+        <div class="light-color">
+            <div class="color-option color-white" data-color="255,255,255"></div>
+            <div class="color-option color-blue" data-color="97,218,251"></div>
+            <div class="color-option color-purple" data-color="187,97,251"></div>
+            <div class="color-option color-orange" data-color="251,154,97"></div>
+        </div>
+        
+        <div class="toggle-switch">
+            <label class="switch">
+                <input type="checkbox" id="follow-cursor">
+                <span class="slider"></span>
+            </label>
+            <label>Follow Cursor</label>
+        </div>
+        
+        <div class="toggle-switch">
+            <label class="switch">
+                <input type="checkbox" id="show-particles">
+                <span class="slider"></span>
+            </label>
+            <label>Show Particles</label>
+        </div>
+    </div>
+
+    <script src="particles.js"></script>
+    <script src="script.js"></script>
+</body>

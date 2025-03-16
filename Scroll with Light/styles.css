@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0a0a0a;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 50px 20px;
+}
+
+.light-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.light {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.2) 40%, rgba(255, 255, 255, 0) 70%);
+    transform: translate(-50%, -50%);
+    mix-blend-mode: screen;
+    pointer-events: none;
+    transition: width 0.3s, height 0.3s;
+}
+
+.content-section {
+    position: relative;
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: rgba(20, 20, 20, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s ease;
+    opacity: 0.3;
+}
+
+.content-section.active {
+    opacity: 1;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: #fff;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+.highlight {
+    color: #61dafb;
+    font-weight: 600;
+}
+
+.control-panel {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(30, 30, 30, 0.8);
+    padding: 15px;
+    border-radius: 10px;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.control-panel label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.control-panel input {
+    width: 100%;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+
+.light-color {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.color-option {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.color-option:hover {
+    transform: scale(1.2);
+}
+
+.color-white {
+    background-color: #ffffff;
+}
+
+.color-blue {
+    background-color: #61dafb;
+}
+
+.color-purple {
+    background-color: #bb61fb;
+}
+
+.color-orange {
+    background-color: #fb9a61;
+}
+
+.toggle-switch {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.toggle-switch label {
+    margin-bottom: 0;
+    margin-left: 10px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #333;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #fff;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #61dafb;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 20;
+    text-align: center;
+}
+
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.particle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .content-section {
+        padding: 30px 20px;
+        margin: 80px auto;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .light {
+        width: 180px;
+        height: 180px;
+    }
+}
