@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: background-color 1s ease;
+}
+
+.scene {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Lamp stand */
+.lamp-stand {
+    width: 10px;
+    height: 150px;
+    background-color: #333;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+/* Lamp base */
+.lamp-base {
+    width: 80px;
+    height: 20px;
+    background-color: #444;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    z-index: 1;
+}
+
+/* Lamp shade */
+.lamp-shade {
+    position: relative;
+    width: 120px;
+    height: 80px;
+    background-color: #555;
+    border-radius: 60px 60px 0 0;
+    margin-bottom: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+/* Lamp shade border */
+.lamp-shade::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid #666;
+    border-radius: 60px 60px 0 0;
+    pointer-events: none;
+}
+
+/* Lamp bulb */
+.lamp-bulb {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: #ffdb7d;
+    border-radius: 50%;
+    box-shadow: 0 0 0px #ffdb7d;
+    transition: all 0.3s ease;
+    opacity: 0.2;
+}
+
+/* Glow effect */
+.glow {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(255, 219, 125, 0.4) 0%, rgba(255, 219, 125, 0) 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -30%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1s ease;
+    z-index: 0;
+}
+
+/* Light beam */
+.light-beam {
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 400px;
+    background: radial-gradient(ellipse at top, rgba(255, 219, 125, 0.2) 0%, rgba(255, 219, 125, 0) 70%);
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+    opacity: 0;
+    transition: opacity 1s ease;
+    z-index: 0;
+}
+
+/* Switch */
+.switch {
+    position: absolute;
+    bottom: 120px;
+    right: 100px;
+    width: 60px;
+    height: 30px;
+    background-color: #444;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.switch-toggle {
+    width: 20px;
+    height: 20px;
+    background-color: #888;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.switch.on .switch-toggle {
+    transform: translateX(30px);
+    background-color: #ffdb7d;
+}
+
+/* Lamp on state classes */
+.lamp-on .lamp-bulb {
+    background-color: #fff7d6;
+    box-shadow: 0 0 30px #fff7d6;
+    opacity: 1;
+}
+
+.lamp-on .glow {
+    opacity: 1;
+}
+
+.lamp-on .light-beam {
+    opacity: 1;
+}
+
+.lamp-on .lamp-shade {
+    background-color: #666;
+}
+
+/* Furniture */
+.table {
+    position: absolute;
+    bottom: 0;
+    width: 300px;
+    height: 20px;
+    background-color: #5d4037;
+    border-radius: 5px 5px 0 0;
+    z-index: 1;
+}
+
+.table-leg {
+    position: absolute;
+    bottom: -60px;
+    width: 20px;
+    height: 60px;
+    background-color: #4e342e;
+    z-index: 1;
+}
+
+.table-leg:first-child {
+    left: 40px;
+}
+
+.table-leg:last-child {
+    right: 40px;
+}
+
+/* Wall */
+.wall {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1e1e1e;
+    z-index: -1;
+}
+
+.info-text {
+    position: absolute;
+    bottom: 40px;
+    color: #888;
+    font-size: 16px;
+    text-align: center;
+}
