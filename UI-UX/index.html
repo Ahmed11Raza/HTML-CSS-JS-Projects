@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoo Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h1>🦁 Zoo Management</h1>
+        <ul class="sidebar-menu">
+            <li><button onclick="showSection('dashboard')">Dashboard</button></li>
+            <li><button onclick="showSection('animals')">Animal Management</button></li>
+            <li><button onclick="showSection('caretakers')">Caretaker Management</button></li>
+            <li><button onclick="showSection('exhibits')">Exhibit Management</button></li>
+            <li><button onclick="showSection('health-tracking')">Health Tracking</button></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="content-section active">
+            <h2>Zoo Dashboard</h2>
+            <div class="dashboard-metrics">
+                <div class="metric-card">
+                    <h3>Total Animals</h3>
+                    <p id="total-animals">0</p>
+                </div>
+                <div class="metric-card">
+                    <h3>Total Caretakers</h3>
+                    <p id="total-caretakers">0</p>
+                </div>
+                <div class="metric-card">
+                    <h3>Total Exhibits</h3>
+                    <p id="total-exhibits">0</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Animal Management Section -->
+        <section id="animals" class="content-section">
+            <h2>Animal Management</h2>
+            
+            <h3>Add New Animal</h3>
+            <form id="animal-form" class="form-grid">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" id="animal-name" required title="Enter animal name" placeholder="Enter animal name">
+                </div>
+                <div class="form-group">
+                    <label>Species</label>
+                    <input type="text" id="animal-species" required title="Enter animal species" placeholder="Enter animal species">
+                </div>
+                <div class="form-group">
+                    <label>Age</label>
+                    <input type="number" id="animal-age" required title="Enter animal age" placeholder="Enter age">
+                </div>
+                <div class="form-group">
+                    <label>Habitat</label>
+                    <select id="animal-habitat" required title="Select animal habitat" aria-label="Animal habitat">
+                        <option value="Savanna">Savanna</option>
+                        <option value="Tropical Forest">Tropical Forest</option>
+                        <option value="Arctic">Arctic</option>
+                        <option value="Desert">Desert</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Diet</label>
+                    <input type="text" id="animal-diet" required title="Enter animal diet" placeholder="Enter animal diet">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn">Add Animal</button>
+                </div>
+            </form>
+
+            <h3>Animal List</h3>
+            <table id="animal-table" class="data-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Species</th>
+                        <th>Age</th>
+                        <th>Habitat</th>
+                        <th>Diet</th>
+                    </tr>
+                </thead>
+                <tbody id="animal-list"></tbody>
+            </table>
+        </section>
+
+        <!-- Caretaker Management Section -->
+        <section id="caretakers" class="content-section">
+            <h2>Caretaker Management</h2>
+            
+            <form id="caretaker-form" class="form-grid">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" id="caretaker-name" required title="Enter caretaker name" placeholder="Enter caretaker name">
+                </div>
+                <div class="form-group">
+                    <label>Specialization</label>
+                    <select id="caretaker-specialization" required title="Select caretaker specialization" aria-label="Caretaker specialization">
+                        <option value="Mammals">Mammals</option>
+                        <option value="Reptiles">Reptiles</option>
+                        <option value="Birds">Birds</option>
+                        <option value="Aquatic">Aquatic</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Contact Number</label>
+                    <input type="tel" id="caretaker-contact" required title="Enter contact number" placeholder="Enter contact number">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn">Add Caretaker</button>
+                </div>
+            </form>
+
+            <h3>Caretaker List</h3>
+            <table id="caretaker-table" class="data-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Specialization</th>
+                        <th>Contact</th>
+                    </tr>
+                </thead>
+                <tbody id="caretaker-list"></tbody>
+            </table>
+        </section>
+
+        <!-- Exhibit Management Section -->
+        <section id="exhibits" class="content-section">
+            <h2>Exhibit Management</h2>
+            
+            <form id="exhibit-form" class="form-grid">
+                <div class="form-group">
+                    <label>Exhibit Name</label>
+                    <input type="text" id="exhibit-name" required title="Enter exhibit name" placeholder="Enter exhibit name">
+                </div>
+                <div class="form-group">
+                    <label>Capacity</label>
+                    <input type="number" id="exhibit-capacity" required title="Enter exhibit capacity" placeholder="Enter capacity">
+                </div>
+                <div class="form-group">
+                    <label>Habitat Type</label>
+                    <select id="exhibit-habitat" required title="Select habitat type" aria-label="Habitat type">
+                        <option value="Savanna">Savanna</option>
+                        <option value="Tropical Forest">Tropical Forest</option>
+                        <option value="Arctic">Arctic</option>
+                        <option value="Desert">Desert</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn">Add Exhibit</button>
+                </div>
+            </form>
+
+            <h3>Exhibit List</h3>
+            <table id="exhibit-table" class="data-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Capacity</th>
+                        <th>Habitat Type</th>
+                    </tr>
+                </thead>
+                <tbody id="exhibit-list"></tbody>
+            </table>
+        </section>
+
+        <!-- Health Tracking Section -->
+        <section id="health-tracking" class="content-section">
+            <h2>Animal Health Tracking</h2>
+            
+            <div class="form-group">
+                <label for="health-animal-select">Select Animal</label>
+                <select id="health-animal-select" aria-label="Select animal for health tracking"></select>
+            </div>
+
+            <div id="health-details">
+                <h3>Health Status</h3>
+                <div class="form-group">
+                    <label>Current Status</label>
+                    <input type="text" id="current-health-status" readonly title="Current health status" placeholder="Current health status">
+                </div>
+
+                <form id="health-update-form">
+                    <div class="form-group">
+                        <label>Update Health Status</label>
+                        <select id="new-health-status" title="Update health status" aria-label="Update health status">
+                            <option value="Healthy">Healthy</option>
+                            <option value="Sick">Sick</option>
+                            <option value="Recovery">Recovery</option>
+                            <option value="Quarantine">Quarantine</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Medical Notes</label>
+                        <textarea id="medical-notes" title="Enter medical notes" placeholder="Enter medical notes here"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Update Health Status</button>
+                </form>
+
+                <h3>Medical History</h3>
+                <ul id="medical-history"></ul>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
